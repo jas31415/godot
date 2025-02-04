@@ -2233,7 +2233,7 @@ void AnimationMixer::reset() {
 	ERR_FAIL_COND(reset_anim.is_null());
 
 	Node *root_node_object = get_node_or_null(root_node);
-	ERR_FAIL_NULL(root_node_object);
+	ERR_FAIL_NULL_MSG(root_node_object, "AnimationMixer's Root Node is null. By default, the Root Node is set to its parent. If this node is the local root, there will be no parent to assign it to.");
 
 	AnimationPlayer *aux_player = memnew(AnimationPlayer);
 	root_node_object->add_child(aux_player);
